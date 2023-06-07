@@ -1,0 +1,24 @@
+package com.cts.exception;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ControllerAdvice
+public class EmployeeExceptionAOP {
+	
+	@ResponseBody
+	@ResponseStatus(value = HttpStatus.NOT_FOUND)
+	@ExceptionHandler(value= {EmployeeNotFoundException.class})
+	//OR @ExceptionHandler(value= {Exception.class})
+	public ErrorInfo exceptionHandler(Exception exception,HttpServletRequest request) {
+		String mssg=exception.getMessage();
+		String uri=request.getRequestURI();
+		return new ErrorInfo(uri, mssg);
+	}
+
+}

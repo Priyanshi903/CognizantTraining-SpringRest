@@ -1,0 +1,12 @@
+1642051824217	Rename type 'MovieController'
+1642056131405	Rename type 'CustomerService'
+1642056139144	Delete element
+1642056157640	Rename type 'AdminController'
+1642056163107	Delete element
+1642057582797	Delete element
+1642057792026	Rename field 'adminDao'
+1642067936491	Rename local variable 'id'
+1642069901537	Rename package 'com.cognizant.truyum.exception'
+1642069924275	Rename type 'CartEmptyException'
+1642070468130	Delete element
+1642219018414	Copy package

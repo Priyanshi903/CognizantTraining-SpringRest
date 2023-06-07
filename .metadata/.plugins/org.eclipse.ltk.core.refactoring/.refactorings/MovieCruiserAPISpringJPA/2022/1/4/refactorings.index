@@ -1,0 +1,8 @@
+1642388926756	Copy package
+1642389122840	Copy package
+1642389405012	Copy package
+1642395542535	Rename type 'User'
+1642395702075	Rename type 'UserService'
+1642395730527	Rename type 'UserRepository'
+1642400088915	Rename field 'userService'
+1642401263423	Rename field 'userRepository'

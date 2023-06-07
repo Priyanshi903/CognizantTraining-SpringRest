@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="dateFormat" class="java.text.SimpleDateFormat">
+		<constructor-arg value="dd/MM/yyyy" />
+	</bean>
+
+	<bean id="DEP1001A" class="com.cognizant.model.Department">
+		<property name="depId" value="5001" />
+		<property name="depName" value="AI" />
+	</bean>
+	<bean id="DEP1002A" class="com.cognizant.model.Department">
+		<property name="depId" value="5002" />
+		<property name="depName" value="Cloud" />
+	</bean>
+
+	<bean id="101" class="com.cognizant.model.Employee">
+		<property name="id" value="101" />
+		<property name="name" value="Priyanshi" />
+		<property name="dateOfBirth">
+			<bean factory-bean="dateFormat" factory-method="parse">
+				<constructor-arg value="09/03/1999" />
+			</bean>
+		</property>
+		<property name="department" ref="DEP1001A" />
+		<property name="salary" value="200000" />
+		<property name="permanent" value="true" />
+	</bean>
+	<bean id="102" class="com.cognizant.model.Employee">
+		<property name="id" value="102" />
+		<property name="name" value="John" />
+		<property name="dateOfBirth">
+			<bean factory-bean="dateFormat" factory-method="parse">
+				<constructor-arg value="10/03/1999" />
+			</bean>
+		</property>
+		<property name="salary" value="300000" />
+		<property name="permanent" value="false" />
+		<property name="department" ref="DEP1001A" />
+	</bean>
+	<bean id="103" class="com.cognizant.model.Employee">
+		<property name="id" value="103" />
+		<property name="name" value="Alice" />
+		<property name="dateOfBirth">
+			<bean factory-bean="dateFormat" factory-method="parse">
+				<constructor-arg value="09/03/1999" />
+			</bean>
+		</property>
+		<property name="salary" value="400000" />
+		<property name="permanent" value="false" />
+		<property name="department" ref="DEP1002A" />
+	</bean>
+	<bean id="104" class="com.cognizant.model.Employee">
+		<property name="id" value="104" />
+		<property name="name" value="Smith" />
+		<property name="dateOfBirth">
+			<bean factory-bean="dateFormat" factory-method="parse">
+				<constructor-arg value="09/03/1999" />
+			</bean>
+		</property>
+		<property name="salary" value="500000" />
+		<property name="permanent" value="true" />
+		<property name="department" ref="DEP1002A" />
+	</bean>
+
+
+
+	<bean id="employeeList" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<ref bean="101"></ref>
+				<ref bean="102"></ref>
+				<ref bean="103"></ref>
+				<ref bean="104"></ref>
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="departmentList" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<ref bean="DEP1001A"></ref>
+				<ref bean="DEP1002A"></ref>
+			</list>
+		</constructor-arg>
+	</bean>
+
+
+</beans>
